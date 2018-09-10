@@ -221,12 +221,8 @@ module Brcobranca
           ) { |t| 11 - (t % 11) }
 
           nosso_numero_dv = "#{nosso_numero}#{verificador}"
-          puts "nosso numero=#{nosso_numero}, dv=#{verificador}"
 
-          r = "#{nosso_numero_dv.to_s.rjust(8, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
-          puts r
-
-          r
+          "#{nosso_numero_dv.to_s.rjust(8, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
         end
 
         def dias_baixa(pagamento)
