@@ -220,7 +220,7 @@ module Brcobranca
         end
 
         def sicoob_dv(nosso_numero)
-          x = "#{agencia}#{convenio.rjust(10, '0')}#{nosso_numero.rjust(7, '0')}"
+          x = "#{agencia}#{convenio.to_s.rjust(10, '0')}#{nosso_numero.to_s.rjust(7, '0')}"
           y = "3197"
 
           s = (0..(x.length - 1)).map { |i| x[i].to_i * y[i % 4].to_i }.sum
