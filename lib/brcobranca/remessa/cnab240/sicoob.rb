@@ -214,17 +214,17 @@ module Brcobranca
         #            "6" -A4 sem envelopamento 3 vias
         #       Em branco - 05 posições (16 a 20)
         def formata_nosso_numero(nosso_numero)
-          nosso_numero_dv = "#{nosso_numero}#{sicoob_dv}".rjust(10, '0')
+          nosso_numero_dv = "#{nosso_numero}#{sicoob_dv(nosso_numero)}".rjust(10, '0')
 
           "#{nosso_numero_dv}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
         end
 
-        def sicoob_dv
+        def sicoob_dv(nosso_numero)
           x = "#{agencia}#{convenio.rjust(10, '0')}#{nosso_numero.rjust(7, '0')}"
           y = "3197"
 
           s = (0..(x.length - 1)).map { |i| x[i].to_i * y[i % 4].to_i }.sum
-          d = 11 - (sum % 11)
+          d = 11 - (s % 11)
           d = 0 if d > 9
 
           d.to_s
