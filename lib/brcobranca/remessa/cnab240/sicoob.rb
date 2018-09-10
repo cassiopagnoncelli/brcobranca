@@ -222,7 +222,7 @@ module Brcobranca
 
           nosso_numero_dv = "#{nosso_numero}#{verificador}"
 
-          "#{nosso_numero_dv.to_s.rjust(8, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
+          "#{nosso_numero_dv.to_s.rjust(10, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
         end
 
         def dias_baixa(pagamento)
