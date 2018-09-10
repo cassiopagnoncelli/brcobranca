@@ -214,15 +214,20 @@ module Brcobranca
         #            "6" -A4 sem envelopamento 3 vias
         #       Em branco - 05 posições (16 a 20)
         def formata_nosso_numero(nosso_numero)
-          verificador = "#{agencia}#{convenio.rjust(10, '0')}#{nosso_numero}".modulo11(
-            reverse: false,
-            multiplicador: [3, 1, 9, 7],
-            mapeamento: { 10 => 0, 11 => 0 }
-          ) { |t| 11 - (t % 11) }
+          nosso_numero_dv = "#{nosso_numero}#{sicoob_dv}".rjust(10, '0')
 
-          nosso_numero_dv = "#{nosso_numero}#{verificador}"
+          "#{nosso_numero_dv}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
+        end
 
-          "#{nosso_numero_dv.to_s.rjust(10, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
+        def sicoob_dv
+          x = "#{agencia}#{convenio.rjust(10, '0')}#{nosso_numero.rjust(7, '0')}"
+          y = "3197"
+
+          s = (0..(x.length - 1)).map { |i| x[i].to_i * y[i % 4].to_i }.sum
+          d = 11 - (sum % 11)
+          d = 0 if d > 9
+
+          d.to_s
         end
 
         def dias_baixa(pagamento)
