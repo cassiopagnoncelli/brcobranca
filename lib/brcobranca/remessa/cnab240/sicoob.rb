@@ -214,7 +214,7 @@ module Brcobranca
         #            "6" -A4 sem envelopamento 3 vias
         #       Em branco - 05 posições (16 a 20)
         def formata_nosso_numero(nosso_numero)
-          "#{Date.current.year - 2000}#{nosso_numero.to_s.rjust(8, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
+          "#{nosso_numero_dv.to_s.rjust(8, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
         end
 
         def dias_baixa(pagamento)
