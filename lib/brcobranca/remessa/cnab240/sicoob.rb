@@ -220,7 +220,12 @@ module Brcobranca
             mapeamento: { 10 => 0, 11 => 0 }
           ) { |t| 11 - (t % 11) }
 
-          "#{(nosso_numero + dv).to_s.rjust(8, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
+          nosso_numero_dv = "#{nosso_numero}#{dv}"
+
+          r = "#{nosso_numero_dv.to_s.rjust(8, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
+          puts r
+
+          r
         end
 
         def dias_baixa(pagamento)
