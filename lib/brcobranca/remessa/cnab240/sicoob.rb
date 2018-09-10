@@ -214,11 +214,19 @@ module Brcobranca
         #            "6" -A4 sem envelopamento 3 vias
         #       Em branco - 05 posições (16 a 20)
         def formata_nosso_numero(nosso_numero)
-          "#{nosso_numero_dv.to_s.rjust(8, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
+          "#{(nosso_numero + nosso_numero_dv).to_s.rjust(8, '0')}#{parcela}#{modalidade_carteira}#{tipo_formulario}     "
         end
 
         def dias_baixa(pagamento)
           ''.rjust(3, ' ')
+        end
+
+        def nosso_numero_dv
+          "#{agencia}#{convenio.rjust(10, '0')}#{nosso_numero}".modulo11(
+            reverse: false,
+            multiplicador: [3, 1, 9, 7],
+            mapeamento: { 10 => 0, 11 => 0 }
+          ) { |t| 11 - (t % 11) }
         end
       end
     end
