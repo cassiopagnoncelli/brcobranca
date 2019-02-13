@@ -8,11 +8,13 @@ module Brcobranca
     # se a string for maior, trunca para o num. de caracteres
     #
     def format_size(size)
-      if self.size > size
-        remove_accents.strip.gsub(/\s+/, ' ').gsub(/[^A-Za-z0-9[[:space:]]]/, '').truncate(size, omission: '')
-      else
-        remove_accents.strip.gsub(/\s+/, ' ').gsub(/[^A-Za-z0-9[[:space:]]]/, '').ljust(size, ' ')
-      end
+      # if self.size > size
+      #   remove_accents.strip.gsub(/\s+/, ' ').gsub(/[^A-Za-z0-9[[:space:]]]/, '').truncate(size, omission: '')
+      # else
+      #   remove_accents.strip.gsub(/\s+/, ' ').gsub(/[^A-Za-z0-9[[:space:]]]/, '').ljust(size, ' ')
+      # end
+
+      remove_accents.strip.gsub(/\s+/, ' ').gsub(/[^A-Za-z0-9[[:space:]]]/, '').ljust(size, ' ')[0 .. (size - 1)]
     end
 
     def truncate(truncate_at)
