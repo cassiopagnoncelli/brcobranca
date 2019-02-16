@@ -59,7 +59,7 @@ module Brcobranca
       # Dígito verificador do nosso número.
       #
       # Para a grande maioria das carteiras, são considerados para a obtenção do DAC/DV, os dados
-      # "AGENCIA(sem DAC/DV)/CONTA(sem DAC/DV)/CARTEIRA/NOSSO NUMERO", calculado pelo criterio do Modulo 10.<br/>
+      # "AGENCIA(sem DAC/DV)/CONTA(sem DAC/DV)/CARTEIRA/NOSSO NUMERO", calculado pelo criterio do Modulo 10.
       # A excecao, estão as carteiras 112, 126, 131, 146, 150 e 168 cuja obtenção esta baseada apenas nos
       # dados "CARTEIRA/NOSSO NUMERO".
       #
@@ -96,32 +96,32 @@ module Brcobranca
 
       # Segunda parte do código de barras.
       #
-      # CARTEIRAS 198, 106, 107,122, 142, 143, 195 e 196<br/>
-      # 01 a 03 | 03 | 9(3) | Código do Banco na Câmara de Compensação = ‘341’<br/>
-      # 04 a 04 | 01 | 9(1) | Código da Moeda = '9'<br/>
-      # 05 a 05 | 01 | 9(1) | DAC do Código de Barras MOD 11-2a9<br/>
-      # 06 a 09 | 04 | 9(04) | Fator de Vencimento<br/>
-      # 10 a 19 | 10 | 9(08) | V(2) Valor<br/>
-      # 20 a 22 | 03 | 9(3) | Carteira<br/>
-      # 23 a 30 | 08 | 9(8) | Nosso Número<br/>
-      # 31 a 37 | 07 | 9(7) | Seu Número (Número do Documento)<br/>
-      # 38 a 42 | 05 | 9(5) | Código do Cliente (fornecido pelo Banco)<br/>
-      # 43 a 43 | 01 | 9(1) | DAC dos campos acima (posições 20 a 42) MOD 10<br/>
-      # 44 a 44 | 01 | 9(1) | Zero<br/>
+      # CARTEIRAS 198, 106, 107,122, 142, 143, 195 e 196
+      # 01 a 03 | 03 | 9(3) | Código do Banco na Câmara de Compensação = ‘341’
+      # 04 a 04 | 01 | 9(1) | Código da Moeda = '9'
+      # 05 a 05 | 01 | 9(1) | DAC do Código de Barras MOD 11-2a9
+      # 06 a 09 | 04 | 9(04) | Fator de Vencimento
+      # 10 a 19 | 10 | 9(08) | V(2) Valor
+      # 20 a 22 | 03 | 9(3) | Carteira
+      # 23 a 30 | 08 | 9(8) | Nosso Número
+      # 31 a 37 | 07 | 9(7) | Seu Número (Número do Documento)
+      # 38 a 42 | 05 | 9(5) | Código do Cliente (fornecido pelo Banco)
+      # 43 a 43 | 01 | 9(1) | DAC dos campos acima (posições 20 a 42) MOD 10
+      # 44 a 44 | 01 | 9(1) | Zero
       #
-      # DEMAIS CARTEIRAS<br/>
-      # 01 a 03 | 03 | 9(03) | Código do Banco na Câmara de Compensação = '341'<br/>
-      # 04 a 04 | 01 | 9(01) | Código da Moeda = '9'<br/>
-      # 05 a 05 | 01 | 9(01) | DAC código de Barras MOD 11-2a9<br/>
-      # 06 a 09 | 04 | 9(04) | Fator de Vencimento<br/>
-      # 10 a 19 | 10 | 9(08)V(2) | Valor<br/>
-      # 20 a 22 | 03 | 9(03) | Carteira<br/>
-      # 23 a 30 | 08 | 9(08) | Nosso Número<br/>
-      # 31 a 31 | 01 | 9(01) | DAC [Agência /Conta/Carteira/Nosso Número] MOD 10<br/>
-      # 32 a 35 | 04 | 9(04) | N.º da Agência cedente<br/>
-      # 36 a 40 | 05 | 9(05) | N.º da Conta Corrente<br/>
-      # 41 a 41 | 01 | 9(01) | DAC [Agência/Conta Corrente] MOD 10<br/>
-      # 42 a 44 | 03 | 9(03) | Zeros<br/>
+      # DEMAIS CARTEIRAS
+      # 01 a 03 | 03 | 9(03) | Código do Banco na Câmara de Compensação = '341'
+      # 04 a 04 | 01 | 9(01) | Código da Moeda = '9'
+      # 05 a 05 | 01 | 9(01) | DAC código de Barras MOD 11-2a9
+      # 06 a 09 | 04 | 9(04) | Fator de Vencimento
+      # 10 a 19 | 10 | 9(08)V(2) | Valor
+      # 20 a 22 | 03 | 9(03) | Carteira
+      # 23 a 30 | 08 | 9(08) | Nosso Número
+      # 31 a 31 | 01 | 9(01) | DAC [Agência /Conta/Carteira/Nosso Número] MOD 10
+      # 32 a 35 | 04 | 9(04) | N.º da Agência cedente
+      # 36 a 40 | 05 | 9(05) | N.º da Conta Corrente
+      # 41 a 41 | 01 | 9(01) | DAC [Agência/Conta Corrente] MOD 10
+      # 42 a 44 | 03 | 9(03) | Zeros
       #
       # @return [String] 25 caracteres numéricos.
       def codigo_barras_segunda_parte
