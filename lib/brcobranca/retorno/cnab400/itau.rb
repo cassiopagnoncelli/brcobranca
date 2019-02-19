@@ -136,10 +136,10 @@ module Brcobranca
           # parse.field :indicativo_lancamento, 318..318
           # parse.field :indicador_valor, 319..319
           # parse.field :valor_ajuste, 320..331
-
-          # Fixes.
-          self.data_vencimento += 2000.years if self.data_vencimento.present?
         end
+
+        # Fixes.
+        self.data_vencimento += 2000.years if self.data_vencimento.present?
       end
     end
   end
